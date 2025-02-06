@@ -655,7 +655,7 @@ public class AutoHardware extends HardwareConfig {
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangTOP())),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawCLOSE())),
                                 new SleepAction(1),
-                                endAction()
+                                endAction()//
 
                         ),
                         //finish!!!
