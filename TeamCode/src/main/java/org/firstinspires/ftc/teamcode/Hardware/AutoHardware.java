@@ -532,7 +532,7 @@ public class AutoHardware extends HardwareConfig {
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawOPEN())),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangBOTTOM())),
                         new ParallelAction(
-                                armSub.armAction(List.of(() -> armSub.setUptarget(2000))),
+                                armSub.armAction(List.of(() -> armSub.setUptarget(2100))),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setFREAKY())),
                                 new SequentialAction(
                                         drive.actionBuilder(lastPose)
@@ -550,9 +550,8 @@ public class AutoHardware extends HardwareConfig {
                         //reset the claw in order to grab next sample
                         new SequentialAction(
                                 new InstantAction(() -> drivefinished = false),
+                                armSub.armAction(List.of(() -> armSub.setUptarget(200))),
                                 new ParallelAction(
-                                        armSub.armAction(List.of(() -> armSub.setUptarget(150))),
-                                        armSub.armAction(List.of(() -> armSub.isUpAtTarget(50))),
                                         Update()
                                 ),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangTOP())),
@@ -571,7 +570,7 @@ public class AutoHardware extends HardwareConfig {
                                                 .turnTo(Math.toRadians(91))
                                                 .strafeTo(new Vector2d(-42, -50))
                                                 // .turnTo(Math.toRadians(90.0))
-                                                .lineToY(-33)
+                                                .lineToY(-31.5)
                                                 .build(),
                                         endAction()
 
@@ -589,8 +588,9 @@ public class AutoHardware extends HardwareConfig {
                         new SleepAction(1),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setClawOPEN())),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setPrimeBOTTOM())),
+                        new InstantAction(() -> drivefinished = true),
                         new ParallelAction(
-                                armSub.armAction(List.of(() -> armSub.setUptarget(2000))),
+                                armSub.armAction(List.of(() -> armSub.setUptarget(2100))),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setFREAKY())),
                                 new SequentialAction(
                                         drive.actionBuilder(lastPose)
@@ -603,18 +603,18 @@ public class AutoHardware extends HardwareConfig {
                                 ),
                                 Update()
                         ),
+
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawCLOSE())),
+                        new SleepAction(0.5),
                         new SequentialAction(
                                 new InstantAction(() -> drivefinished = false),
                                 new ParallelAction(
-                                        armSub.armAction(List.of(() -> armSub.setUptarget(100))),
-                                        armSub.armAction(List.of(() -> armSub.isUpAtTarget(50))),
+                                        armSub.armAction(List.of(() -> armSub.setUptarget(300))),
                                         Update()
                                 ),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangTOP())),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawCLOSE())),
-                                new SleepAction(1.0),
-                                endAction()
+                                new SleepAction(0.5)
 
                         )
                 )
@@ -629,7 +629,7 @@ public class AutoHardware extends HardwareConfig {
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawOPEN())),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangBOTTOM())),
                         new ParallelAction(
-                                armSub.armAction(List.of(() -> armSub.setUptarget(2000))),
+                                armSub.armAction(List.of(() -> armSub.setUptarget(2100))),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setFREAKY())),
                                 new SequentialAction(
                                         drive.actionBuilder(lastPose)
@@ -648,8 +648,7 @@ public class AutoHardware extends HardwareConfig {
                         new SequentialAction(
                                 new InstantAction(() -> drivefinished = false),
                                 new ParallelAction(
-                                        armSub.armAction(List.of(() -> armSub.setUptarget(150))),
-                                        armSub.armAction(List.of(() -> armSub.isUpAtTarget(50))),
+                                        armSub.armAction(List.of(() -> armSub.setUptarget(300))),
                                         Update()
                                 ),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangTOP())),
@@ -668,7 +667,7 @@ public class AutoHardware extends HardwareConfig {
                                                 .turnTo(Math.toRadians(91))
                                                 .strafeTo(new Vector2d(-42, -50))
                                                 // .turnTo(Math.toRadians(90.0))
-                                                .lineToY(-33)
+                                                .lineToY(-31.5)
                                                 .build(),
                                         endAction()
 
@@ -686,8 +685,9 @@ public class AutoHardware extends HardwareConfig {
                         new SleepAction(1),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setClawOPEN())),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setPrimeBOTTOM())),
+                        new InstantAction(() -> drivefinished = true),
                         new ParallelAction(
-                                armSub.armAction(List.of(() -> armSub.setUptarget(2000))),
+                                armSub.armAction(List.of(() -> armSub.setUptarget(2100))),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setFREAKY())),
                                 new SequentialAction(
                                         drive.actionBuilder(lastPose)
@@ -701,14 +701,27 @@ public class AutoHardware extends HardwareConfig {
                                 Update()
                         ),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawCLOSE())),
+                        new SleepAction(0.5),
+                        new SequentialAction(
+                                new InstantAction(() -> drivefinished = false),
+                                new ParallelAction(
+                                        armSub.armAction(List.of(() -> armSub.setUptarget(300))),
+                                        Update()
+                                ),
+                                clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangTOP())),
+                                clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawCLOSE())),
+                                new SleepAction(1),
+                                endAction()//
+
+                        ),
                         new ParallelAction(
                                 new SequentialAction(
                                         drive.actionBuilder(lastPose)
                                                 //.splineToLinearHeading(new Pose2d(-56, -56, Math.toRadians(225.0)), Math.toRadians(225.0))
                                                 .turnTo(Math.toRadians(91))
-                                                .strafeTo(new Vector2d(-42, -50))
+                                                .strafeTo(new Vector2d(-48, -50))
                                                 // .turnTo(Math.toRadians(90.0))
-                                                .lineToY(-33)
+                                                .lineToY(-31.5)
                                                 .build(),
                                         endAction()
 
@@ -726,8 +739,9 @@ public class AutoHardware extends HardwareConfig {
                         new SleepAction(1),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setClawOPEN())),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setPrimeBOTTOM())),
+                        new InstantAction(() -> drivefinished = true),
                         new ParallelAction(
-                                armSub.armAction(List.of(() -> armSub.setUptarget(2000))),
+                                armSub.armAction(List.of(() -> armSub.setUptarget(2100))),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setFREAKY())),
                                 new SequentialAction(
                                         drive.actionBuilder(lastPose)
@@ -741,6 +755,7 @@ public class AutoHardware extends HardwareConfig {
                                 Update()
                         ),
                         clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawCLOSE())),
+                        new SleepAction(0.5),
                         new SequentialAction(
                                 new InstantAction(() -> drivefinished = false),
                                 new ParallelAction(
