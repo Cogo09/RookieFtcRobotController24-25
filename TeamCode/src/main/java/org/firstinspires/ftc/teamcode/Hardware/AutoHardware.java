@@ -556,7 +556,7 @@ public class AutoHardware extends HardwareConfig {
                                 ),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangTOP())),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawCLOSE())),
-                                new SleepAction(1),
+                                new SleepAction(0.5),
                                 endAction()
 
                         ),
@@ -568,9 +568,9 @@ public class AutoHardware extends HardwareConfig {
                                         drive.actionBuilder(lastPose)
                                                 //.splineToLinearHeading(new Pose2d(-56, -56, Math.toRadians(225.0)), Math.toRadians(225.0))
                                                 .turnTo(Math.toRadians(91))
-                                                .strafeTo(new Vector2d(-42, -50))
+                                                .strafeTo(new Vector2d(-41, -50))
                                                 // .turnTo(Math.toRadians(90.0))
-                                                .lineToY(-31.5)
+                                                .lineToY(-30)
                                                 .build(),
                                         endAction()
 
@@ -653,7 +653,7 @@ public class AutoHardware extends HardwareConfig {
                                 ),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangTOP())),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawCLOSE())),
-                                new SleepAction(1),
+                                new SleepAction(0.5),
                                 endAction()//
 
                         ),
@@ -665,9 +665,9 @@ public class AutoHardware extends HardwareConfig {
                                         drive.actionBuilder(lastPose)
                                                 //.splineToLinearHeading(new Pose2d(-56, -56, Math.toRadians(225.0)), Math.toRadians(225.0))
                                                 .turnTo(Math.toRadians(91))
-                                                .strafeTo(new Vector2d(-42, -50))
+                                                .strafeTo(new Vector2d(-41, -50))
                                                 // .turnTo(Math.toRadians(90.0))
-                                                .lineToY(-31.5)
+                                                .lineToY(-27)
                                                 .build(),
                                         endAction()
 
@@ -710,7 +710,7 @@ public class AutoHardware extends HardwareConfig {
                                 ),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setHangTOP())),
                                 clawsub.clawAction(clawsub, List.of(() -> clawsub.setUClawCLOSE())),
-                                new SleepAction(1),
+                                new SleepAction(0.5),
                                 endAction()//
 
                         ),
@@ -719,9 +719,9 @@ public class AutoHardware extends HardwareConfig {
                                         drive.actionBuilder(lastPose)
                                                 //.splineToLinearHeading(new Pose2d(-56, -56, Math.toRadians(225.0)), Math.toRadians(225.0))
                                                 .turnTo(Math.toRadians(91))
-                                                .strafeTo(new Vector2d(-48, -50))
+                                                .strafeTo(new Vector2d(-46, -50))
                                                 // .turnTo(Math.toRadians(90.0))
-                                                .lineToY(-31.5)
+                                                .lineToY(-30)
                                                 .build(),
                                         endAction()
 
